@@ -1,0 +1,121 @@
+{
+  "forms": [
+    {
+      "legend": "Transferencia de saldo",
+      "controls": [
+        {
+          "label": "Plazo",
+          "type": "select",
+          "options": [
+            "3 Meses",
+            "6 Meses",
+            "9 Meses",
+            "18 Meses"
+          ],
+          "is_mandatory": true
+        },
+        {
+          "label": "Tarjeta JSBC",
+          "type": "card",
+          "is_mandatory": true
+        },
+        {
+          "label": "Importe",
+          "type": "number",
+          "is_mandatory": true
+        },
+        {
+          "label": "Apellido P.",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Apellido M.",
+          "type": "text",
+          "is_mandatory": false
+        },
+        {
+          "label": "Nombre(s)",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Folio",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "TDC de otro banco",
+          "type": "card",
+          "is_mandatory": false
+        }
+      ]
+    },
+    {
+      "legend": "Transferencia DDA",
+      "controls": [
+        {
+          "label": "Plazo",
+          "type": "select",
+          "options": [
+            "3 Meses",
+            "6 Meses",
+            "9 Meses",
+            "18 Meses"
+          ],
+          "is_mandatory": true
+        },
+        {
+          "label": "Tarjeta HSBC",
+          "type": "card",
+          "is_mandatory": true
+        },
+        {
+          "label": "Importe",
+          "type": "number",
+          "is_mandatory": true
+        },
+        {
+          "label": "Apellido P.",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Apellido M.",
+          "type": "text",
+          "is_mandatory": false
+        },
+        {
+          "label": "Nombre(s)",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Folio",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "DDA",
+          "type": "text",
+          "is_mandatory": false
+        }
+      ]
+    },
+    {
+      "legend": "Incremento línea de crédito",
+      "controls": [
+        {
+          "label": "Tarjeta HSBC",
+          "type": "card",
+          "is_mandatory": true
+        },
+        {
+          "label": "Monto",
+          "type": "number",
+          "is_mandatory": true
+        }
+      ]
+    }
+  ]
+}

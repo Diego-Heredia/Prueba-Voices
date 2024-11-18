@@ -1,0 +1,309 @@
+{
+  "forms": [
+    {
+      "legend": "Venta con crédito",
+      "controls": [
+        {
+          "label": "¿Es cambio de domicilio?",
+          "type": "select",
+          "options": [
+            "Si",
+            "No"
+          ],
+          "is_mandatory": true
+        },
+        {
+          "label": "Calle",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Número Ext.",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Número Int.",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "C.P.",
+          "type": "cp",
+          "is_mandatory": true
+        },
+        {
+          "label": "Colonia",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Municipio",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Estado",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Referencia 1",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Referencia 2",
+          "type": "text",
+          "is_mandatory": false
+        }
+      ]
+    },
+    {
+      "legend": "Venta",
+      "controls": [
+        {
+          "label": "Nombre de cliente",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Plazo",
+          "type": "select",
+          "options": [
+            "3 Meses",
+            "6 Meses",
+            "9 Meses",
+            "18 Meses"
+          ],
+          "is_mandatory": true
+        },
+        {
+          "label": "Cat / Plan Lec",
+          "type": "select",
+          "options": [
+            "3 Meses",
+            "6 Meses",
+            "9 Meses",
+            "18 Meses"
+          ],
+          "is_mandatory": true
+        },
+        {
+          "label": "Teléfono de contacto",
+          "type": "phone_number",
+          "is_mandatory": true
+        },
+        {
+          "label": "Correo",
+          "type": "email",
+          "is_mandatory": true
+        },
+        {
+          "label": "Nombre a grabar",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Folio",
+          "type": "text",
+          "is_mandatory": true
+        },
+        {
+          "label": "Tarjeta adicional 1",
+          "type": "select",
+          "options": [
+            "Si",
+            "No"
+          ],
+          "is_mandatory": true,
+          "subform": {
+            "show_if_value_is": "Si",
+            "form": [
+              {
+                "label": "Nombre",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "A. Paterno",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "A. Materno",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Nombre en tarjeta",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Fecha de nacimiento",
+                "type": "date",
+                "is_mandatory": true
+              },
+              {
+                "label": "Estado de nacimiento",
+                "type": "select",
+                "options": [
+                  "CDMX"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "RFC",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Nacionalidad",
+                "type": "select",
+                "options": [
+                  "Mexicana"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "Teléfono casa",
+                "type": "phone_number",
+                "is_mandatory": true
+              },
+              {
+                "label": "Teléfono laboral",
+                "type": "phone_number",
+                "is_mandatory": true
+              },
+              {
+                "label": "Correo electrónico",
+                "type": "email",
+                "is_mandatory": true
+              },
+              {
+                "label": "Genero",
+                "type": "select",
+                "options": [
+                  "M",
+                  "F"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "País de residencia",
+                "type": "select",
+                "options": [
+                  "México"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "CURP",
+                "type": "text",
+                "is_mandatory": true
+              }
+            ]
+          }
+        },
+        {
+          "label": "Tarjeta adicional 2",
+          "type": "select",
+          "options": [
+            "Si",
+            "No"
+          ],
+          "is_mandatory": true,
+          "subform": {
+            "show_if_value_is": "Si",
+            "forms": [
+              {
+                "label": "Nombre",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "A. Paterno",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "A. Materno",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Nombre en tarjeta",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Fecha de nacimiento",
+                "type": "date",
+                "is_mandatory": true
+              },
+              {
+                "label": "Estado de nacimiento",
+                "type": "select",
+                "options": [
+                  "CDMX"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "RFC",
+                "type": "text",
+                "is_mandatory": true
+              },
+              {
+                "label": "Nacionalidad",
+                "type": "select",
+                "options": [
+                  "Mexicana"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "Teléfono casa",
+                "type": "phone_number",
+                "is_mandatory": true
+              },
+              {
+                "label": "Teléfono laboral",
+                "type": "phone_number",
+                "is_mandatory": true
+              },
+              {
+                "label": "Correo electrónico",
+                "type": "email",
+                "is_mandatory": true
+              },
+              {
+                "label": "Genero",
+                "type": "select",
+                "options": [
+                  "M",
+                  "F"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "País de residencia",
+                "type": "select",
+                "options": [
+                  "México"
+                ],
+                "is_mandatory": true
+              },
+              {
+                "label": "CURP",
+                "type": "text",
+                "is_mandatory": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
