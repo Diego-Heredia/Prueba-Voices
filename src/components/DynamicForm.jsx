@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import TextInput from "./fields/TextInput";
 import SelectField from "./fields/SelectField";
+import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const DynamicForm = ({ formDefinition }) => {
@@ -134,8 +135,18 @@ const DynamicForm = ({ formDefinition }) => {
 
           {/* Renderizar subformularios activos */}
           {Object.entries(subformState).map(([field, subform]) =>
-            subform?.map((control, idx) => renderField(control, `${field}-${idx}`))
-          )}
+            subform?.map((control, idx) => (
+                <motion.div
+                key={`${field}-${idx}`}
+                initial={{ opacity: 0, y: -10 }} 
+                animate={{ opacity: 1, y: 0 }}  
+                exit={{ opacity: 0, y: 10 }}   
+                transition={{ duration: 0.3 }} 
+                >
+                {renderField(control, `${field}-${idx}`)}
+                </motion.div>
+            ))
+        )}
 
           <button type="submit" className="btn btn-primary mt-3">
             Guardar
