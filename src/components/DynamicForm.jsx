@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import TextInput from "./fields/TextInput";
+import SelectField from "./fields/SelectField";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const DynamicForm = ({ formDefinition }) => {
-    const methods = useForm();
-    // Estado local para manejar los subformularios dinámicos
+  const methods = useForm();
+  // Estado local para manejar los subformularios dinámicos
   const [subformState, setSubformState] = useState({});
 
   const onSubmit = (data) => {
@@ -26,16 +28,15 @@ const DynamicForm = ({ formDefinition }) => {
       : null;
 
     setSubformState((prev) => ({
-      ...prev,
-      [field]: subform,
+      ...prev, 
+      [field]: subform, 
     }));
   };
 
-  
   const renderField = (control, key) => {
     const { label, type, options, is_mandatory, subform } = control;
 
-    
+    // Sanitizar el label para usarlo como clave válida
     const sanitizedLabel = label.replace(/\./g, "_");
 
     // Definir reglas de validación dinámicas según el tipo de campo
@@ -68,7 +69,7 @@ const DynamicForm = ({ formDefinition }) => {
       ...(type === "number" && {
         pattern: {
           value: /^-?\d+(\.\d+)?$/,
-          message: "Solo se permiten números enteros o decimales", 
+          message: "Solo se permiten números enteros o decimales",
         },
       }),
       ...(label === "Número Ext." || label === "Número Int." ? {
@@ -82,23 +83,7 @@ const DynamicForm = ({ formDefinition }) => {
     // Acceder al error del campo actual desde el estado de errores de React Hook Form
     const error = methods.formState.errors[sanitizedLabel];
 
-    
-    const inputType = (() => {
-      switch (type) {
-        case "number":
-        case "email":
-        case "date":
-          return type; 
-        case "phone_number":
-        case "cp":
-        case "card":
-          return "text";
-        default:
-          return "text"; 
-      }
-    })();
-
-    // Renderizar campos de entrada e inputs según el tipo
+    // Renderizar campos reutilizando componentes específicos
     switch (type) {
       case "text":
       case "number":
@@ -106,42 +91,29 @@ const DynamicForm = ({ formDefinition }) => {
       case "phone_number":
       case "cp":
       case "card":
-      case "date":
         return (
-          <div key={key} className="mb-3">
-            <label className="form-label">{label}</label>
-            <input
-              className={`form-control ${error ? "is-invalid" : ""}`}
-              type={inputType}
-              {...methods.register(sanitizedLabel, validationRules)} // Registrar el campo con validaciones
-            />
-            {error && (
-              <small className="text-danger">{error.message}</small> 
-            )}
-          </div>
+          <TextInput
+            key={key}
+            label={label}
+            type={type === "cp" ? "text" : type}
+            sanitizedLabel={sanitizedLabel}
+            error={error}
+            register={methods.register}
+            validationRules={validationRules}
+          />
         );
       case "select":
         return (
-          <div key={key} className="mb-3">
-            <label className="form-label">{label}</label>
-            <select
-              className={`form-select ${error ? "is-invalid" : ""}`}
-              {...methods.register(sanitizedLabel, validationRules)} // Registrar select
-              onChange={(e) =>
-                handleSubform(label, e.target.value, subform) // Manejar subformulario dinamico
-              }
-            >
-              <option value="">Seleccione...</option>
-              {options.map((option, idx) => (
-                <option key={idx} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            {error && (
-              <small className="text-danger">{error.message}</small> 
-            )}
-          </div>
+          <SelectField
+            key={key}
+            label={label}
+            options={options}
+            sanitizedLabel={sanitizedLabel}
+            error={error}
+            register={methods.register}
+            validationRules={validationRules}
+            onChange={(e) => handleSubform(label, e.target.value, subform)}
+          />
         );
       default:
         return null;
