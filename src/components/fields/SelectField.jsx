@@ -1,8 +1,10 @@
 // SelectField component
 
-const SelectField = ({ label, options, sanitizedLabel, error, register, validationRules, onChange }) => (
+const SelectField = ({ label, options, sanitizedLabel, error, register, validationRules, onChange, isMandatory }) => (
   <div className="mb-3">
-    <label className="form-label">{label}</label>
+    <label className="form-label">
+      {label} {isMandatory && <span className="text-danger">*</span>}
+    </label>
     <select
       className={`form-select ${error ? 'is-invalid' : ''}`}
       {...register(sanitizedLabel, validationRules)}

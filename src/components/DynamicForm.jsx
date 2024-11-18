@@ -101,6 +101,7 @@ const DynamicForm = ({ formDefinition }) => {
             error={error}
             register={methods.register}
             validationRules={validationRules}
+            isMandatory={is_mandatory}
           />
         );
       case "select":
@@ -114,6 +115,7 @@ const DynamicForm = ({ formDefinition }) => {
             register={methods.register}
             validationRules={validationRules}
             onChange={(e) => handleSubform(label, e.target.value, subform)}
+            isMandatory={is_mandatory}
           />
         );
       default:

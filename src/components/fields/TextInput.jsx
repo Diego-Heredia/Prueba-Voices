@@ -1,8 +1,10 @@
 // TextInput component
 
-const TextInput = ({ label, type, sanitizedLabel, error, register, validationRules }) => (
+const TextInput = ({ label, type, sanitizedLabel, error, register, validationRules, isMandatory }) => (
   <div className="mb-3">
-    <label className="form-label">{label}</label>
+    <label className="form-label">
+      {label} {isMandatory && <span className="text-danger">*</span>}
+    </label>
     <input
       className={`form-control ${error ? 'is-invalid' : ''}`}
       type={type}

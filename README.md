@@ -51,7 +51,7 @@ Abre tu navegador en [http://localhost:5173](http://localhost:5173) para ver la 
 - **Lógica Condicional:** Renderizado de subformularios basados en las respuestas del usuario.  
 - **Validación de Formularios:** Manejo y validación de entradas con **React Hook Form**.  
 - **Diseño Responsivo:** Interfaz adaptable gracias a **Bootstrap**.  
-
+- **Animaciones Suaves:** Uso de **Framer Motion** para transiciones fluidas al cambiar entre formularios y mostrar subformularios dinámicos.
 ---
 
 ## 📂 **Estructura del Proyecto**  
@@ -60,6 +60,7 @@ Abre tu navegador en [http://localhost:5173](http://localhost:5173) para ver la 
 ├── public/                  # Archivos públicos (favicon, index.html)
 ├── src/
 │   ├── components/          # Componentes reutilizables (e.g., DynamicForm.jsx)
+│   │   ├── fields/          # Componentes del forms (TextInput.jsx, SelectField.jsx)
 │   ├── data/                # JSONs de definición de formularios
 │   ├── App.jsx              
 │   ├── main.jsx            
@@ -72,6 +73,7 @@ Abre tu navegador en [http://localhost:5173](http://localhost:5173) para ver la 
 - **React**: Biblioteca de JavaScript para construir interfaces de usuario.  
 - **React Hook Form**: Manejo eficiente de formularios y validación.  
 - **Bootstrap**: Framework CSS para diseño responsivo y estilizado rápido.  
+- **Framer Motion**: Animaciones modernas para transiciones suaves.
 - **Vite**: Herramienta moderna para desarrollo rápido y eficiente.  
 
 
